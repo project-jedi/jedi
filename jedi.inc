@@ -433,6 +433,7 @@
   HAS_UNIT_GIFIMG                Unit GifImg exists (D11+)
   HAS_UNIT_ANSISTRINGS           Unit AnsiStrings exists (D12+)
   HAS_UNIT_PNGIMAGE              Unit PngImage exists (D12+)
+  HAS_UNIT_CHARACTER             Unit Character exists (D12+)
   XPLATFORM_RTL                  The RTL supports crossplatform function names (e.g. RaiseLastOSError) (D6+/BCB6+/FPC)
   SUPPORTS_UNICODE               string type is aliased to an unicode string (WideString or UnicodeString) (DX.NET, D12+)
   SUPPORTS_UNICODE_STRING        Compiler supports UnicodeString (D12+)
@@ -1235,6 +1236,7 @@
 {$IFDEF RTL200_UP}
   {$DEFINE HAS_UNIT_ANSISTRINGS}
   {$DEFINE HAS_UNIT_PNGIMAGE}
+  {$DEFINE HAS_UNIT_CHARACTER}
 {$ENDIF RTL200_UP}
 
 {------------------------------------------------------------------------------}
