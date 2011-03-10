@@ -826,7 +826,7 @@
 { BCBX_UP from BCBX_UP mappings                                                }
 {------------------------------------------------------------------------------}
 
-{$IFDEF BCB15_UP} {$DEFINE BCB15_UP} {$ENDIF}
+{$IFDEF BCB15_UP} {$DEFINE BCB14_UP} {$ENDIF}
 {$IFDEF BCB14_UP} {$DEFINE BCB12_UP} {$ENDIF}
 {$IFDEF BCB12_UP} {$DEFINE BCB11_UP} {$ENDIF}
 {$IFDEF BCB11_UP} {$DEFINE BCB10_UP} {$ENDIF}
