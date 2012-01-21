@@ -456,6 +456,7 @@
   HAS_UNIT_RTTI                  Unit RTTI is available (D14+)
   SUPPORTS_CAST_INTERFACE_TO_OBJ The compiler supports casts from interfaces to objects (D14+)
   SUPPORTS_DELAYED_LOADING       The compiler generates stubs for delaying imported function loads (D14+)
+  HAS_UNIT_REGULAREXPRESSIONSAPI Unit RegularExpressionsAPI is available (D15+)
   HAS_UNIT_SYSTEM_UITYPES        Unit System.UITypes is available (D16+)
 
 
@@ -1303,6 +1304,7 @@
 
 {$IFDEF RTL220_UP}
   {$DEFINE SUPPORTS_UINT64}
+  {$DEFINE HAS_UNIT_REGULAREXPRESSIONSAPI}
 {$ENDIF RTL220_UP}
 
 {$IFDEF RTL230_UP}
