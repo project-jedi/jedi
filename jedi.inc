@@ -833,7 +833,7 @@
       {$UNDEF UNKNOWN_COMPILER_VERSION}
     {$ENDIF VER250}
 
-    {$IFDEF VER260} // RAD Studio XE4
+    {$IFDEF VER260} // RAD Studio XE5
       {$DEFINE BDS}
       {$DEFINE BDS12}
       {$DEFINE COMPILER19}
@@ -846,7 +846,7 @@
       {$ENDIF BCB}
       {$DEFINE RTL260_UP}
       {$UNDEF UNKNOWN_COMPILER_VERSION}
-    {$ENDIF VER250}
+    {$ENDIF VER260}
 
     {$IFDEF UNKNOWN_COMPILER_VERSION} // adjust for newer version (always use latest version)
       {$DEFINE BDS}
