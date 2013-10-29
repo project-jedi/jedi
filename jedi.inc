@@ -149,7 +149,7 @@
   DELPHI18            Defined when compiling with Delphi XE4 for Win32 (Codename QUINTESSENCE)
   DELPHIXE4           Alias for DELPHI18
   DELPHI19            Defined when compiling with Delphi XE5 for Win32 (Codename ZEPHYR)
-  DELPHIXE5           Alias for DELPHI15
+  DELPHIXE5           Alias for DELPHI19
   DELPHI1_UP          Defined when compiling with Delphi 1 or higher
   DELPHI2_UP          Defined when compiling with Delphi 2 or higher
   DELPHI3_UP          Defined when compiling with Delphi 3 or higher
