@@ -499,6 +499,7 @@
   HAS_UNIT_SYSTEM_UITYPES        Unit System.UITypes is available (D16+)
   HAS_UNIT_SYSTEM_ACTIONS        Unit System.Actions is available (D17+)
   DEPRECATED_SYSUTILS_ANSISTRINGS  AnsiString functions from SysUtils are deprecated and moved to System.AnsiStrings (D18+)
+  HAS_PROPERTY_STYLEELEMENTS     TControl has a StyleElements property (D17+)
 
 
 - Compiler Settings
@@ -1445,6 +1446,7 @@
 
 {$IFDEF RTL240_UP}
   {$DEFINE HAS_UNIT_SYSTEM_ACTIONS}
+  {$DEFINE HAS_PROPERTY_STYLEELEMENTS}
 {$ENDIF RTL240_UP}
 
 {$IFDEF RTL250_UP}
