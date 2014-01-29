@@ -150,6 +150,8 @@
   DELPHIXE4           Alias for DELPHI18
   DELPHI19            Defined when compiling with Delphi XE5 for Win32 (Codename ZEPHYR)
   DELPHIXE5           Alias for DELPHI19
+  DELPHI20            Defined when compiling with Delphi XE6 for Win32 (Codename PROTEUS)
+  DELPHIXE6           Alias for DELPHI20
   DELPHI1_UP          Defined when compiling with Delphi 1 or higher
   DELPHI2_UP          Defined when compiling with Delphi 2 or higher
   DELPHI3_UP          Defined when compiling with Delphi 3 or higher
@@ -178,6 +180,8 @@
   DELPHIXE4_UP        Alias for DELPHI18_UP
   DELPHI19_UP         Defined when compiling with Delphi XE5 for Win32 or higher
   DELPHIXE5_UP        Alias for DELPHI19_UP
+  DELPHI20_UP         Defined when compiling with Delphi XE6 for Win32 or higher
+  DELPHIXE6_UP        Alias for DELPHI20_UP
 
 
 - Kylix Versions
@@ -274,6 +278,7 @@
   BCB17_UP     Defined when compiling with C++Builder Personality of RAD Studio XE3 or higher
   BCB18_UP     Defined when compiling with C++Builder Personality of RAD Studio XE4 or higher
   BCB19_UP     Defined when compiling with C++Builder Personality of RAD Studio XE5 or higher
+  BCB20_UP     Defined when compiling with C++Builder Personality of RAD Studio XE6 or higher
 
 
 - RAD Studio / Borland Developer Studio Versions
@@ -310,6 +315,7 @@
   BDS10_UP     Defined when compiling with BDS 10.0 or higher
   BDS11_UP     Defined when compiling with BDS 11.0 or higher
   BDS12_UP     Defined when compiling with BDS 12.0 or higher
+  BDS13_UP     Defined when compiling with BDS 13.0 or higher
 
 - Compiler Versions
 
@@ -359,6 +365,7 @@
   COMPILER17_UP  Defined when compiling with Delphi or C++Builder Personalities of BDS 10.0 or higher
   COMPILER18_UP  Defined when compiling with Delphi or C++Builder Personalities of BDS 11.0 or higher
   COMPILER19_UP  Defined when compiling with Delphi or C++Builder Personalities of BDS 12.0 or higher
+  COMPILER20_UP  Defined when compiling with Delphi or C++Builder Personalities of BDS 13.0 or higher
 
 
 - RTL Versions
@@ -395,6 +402,7 @@
   RTL240_UP     Defined when compiling with Delphi or C++Builder Personalities of BDS 10.0 or higher
   RTL250_UP     Defined when compiling with Delphi or C++Builder Personalities of BDS 11.0 or higher
   RTL260_UP     Defined when compiling with Delphi or C++Builder Personalities of BDS 12.0 or higher
+  RTL270_UP     Defined when compiling with Delphi or C++Builder Personalities of BDS 13.0 or higher
 
 
 - CLR Versions
@@ -499,7 +507,6 @@
   HAS_UNIT_SYSTEM_UITYPES        Unit System.UITypes is available (D16+)
   HAS_UNIT_SYSTEM_ACTIONS        Unit System.Actions is available (D17+)
   DEPRECATED_SYSUTILS_ANSISTRINGS  AnsiString functions from SysUtils are deprecated and moved to System.AnsiStrings (D18+)
-  HAS_PROPERTY_STYLEELEMENTS     TControl has a StyleElements property (D17+)
 
 
 - Compiler Settings
@@ -849,18 +856,33 @@
       {$UNDEF UNKNOWN_COMPILER_VERSION}
     {$ENDIF VER260}
 
+    {$IFDEF VER270} // RAD Studio XE6
+      {$DEFINE BDS}
+      {$DEFINE BDS13}
+      {$DEFINE COMPILER20}
+      {$IFDEF BCB}
+        {$DEFINE BCB20}
+      {$ELSE}
+        {$DEFINE DELPHI20}
+        {$DEFINE DELPHIXE6} // synonym to DELPHI20
+        {$DEFINE DELPHICOMPILER20}
+      {$ENDIF BCB}
+      {$DEFINE RTL270_UP}
+      {$UNDEF UNKNOWN_COMPILER_VERSION}
+    {$ENDIF VER260}
+
     {$IFDEF UNKNOWN_COMPILER_VERSION} // adjust for newer version (always use latest version)
       {$DEFINE BDS}
-      {$DEFINE BDS12}
-      {$DEFINE COMPILER19}
+      {$DEFINE BDS13}
+      {$DEFINE COMPILER20}
       {$IFDEF BCB}
-        {$DEFINE BCB19}
+        {$DEFINE BCB20}
       {$ELSE}
-        {$DEFINE DELPHI19}
-        {$DEFINE DELPHIXE5} // synonym to DELPHI19
-        {$DEFINE DELPHICOMPILER19}
+        {$DEFINE DELPHI20}
+        {$DEFINE DELPHIXE6} // synonym to DELPHI20
+        {$DEFINE DELPHICOMPILER20}
       {$ENDIF BCB}
-      {$DEFINE RTL260_UP}
+      {$DEFINE RTL270_UP}
       {$UNDEF UNKNOWN_COMPILER_VERSION}
     {$ENDIF}
 
@@ -880,6 +902,7 @@
 { DELPHIX_UP from DELPHIX mappings                                             }
 {------------------------------------------------------------------------------}
 
+{$IFDEF DELPHI20} {$DEFINE DELPHI20_UP} {$ENDIF}
 {$IFDEF DELPHI19} {$DEFINE DELPHI19_UP} {$ENDIF}
 {$IFDEF DELPHI18} {$DEFINE DELPHI18_UP} {$ENDIF}
 {$IFDEF DELPHI17} {$DEFINE DELPHI17_UP} {$ENDIF}
@@ -902,6 +925,11 @@
 {------------------------------------------------------------------------------}
 { DELPHIX_UP from DELPHIX_UP mappings                                          }
 {------------------------------------------------------------------------------}
+
+{$IFDEF DELPHI20_UP}
+  {$DEFINE DELPHIXE6_UP} // synonym to DELPHI20_UP
+  {$DEFINE DELPHI19_UP}
+{$ENDIF}
 
 {$IFDEF DELPHI19_UP}
   {$DEFINE DELPHIXE5_UP} // synonym to DELPHI19_UP
@@ -965,6 +993,7 @@
 { BCBX_UP from BCBX mappings                                                   }
 {------------------------------------------------------------------------------}
 
+{$IFDEF BCB20} {$DEFINE BCB20_UP} {$ENDIF}
 {$IFDEF BCB19} {$DEFINE BCB19_UP} {$ENDIF}
 {$IFDEF BCB18} {$DEFINE BCB18_UP} {$ENDIF}
 {$IFDEF BCB17} {$DEFINE BCB17_UP} {$ENDIF}
@@ -984,6 +1013,7 @@
 { BCBX_UP from BCBX_UP mappings                                                }
 {------------------------------------------------------------------------------}
 
+{$IFDEF BCB20_UP} {$DEFINE BCB19_UP} {$ENDIF}
 {$IFDEF BCB19_UP} {$DEFINE BCB18_UP} {$ENDIF}
 {$IFDEF BCB18_UP} {$DEFINE BCB17_UP} {$ENDIF}
 {$IFDEF BCB17_UP} {$DEFINE BCB16_UP} {$ENDIF}
@@ -1002,6 +1032,7 @@
 { BDSX_UP from BDSX mappings                                                   }
 {------------------------------------------------------------------------------}
 
+{$IFDEF BDS13} {$DEFINE BDS13_UP} {$ENDIF}
 {$IFDEF BDS12} {$DEFINE BDS12_UP} {$ENDIF}
 {$IFDEF BDS11} {$DEFINE BDS11_UP} {$ENDIF}
 {$IFDEF BDS10} {$DEFINE BDS10_UP} {$ENDIF}
@@ -1018,6 +1049,7 @@
 { BDSX_UP from BDSX_UP mappings                                                }
 {------------------------------------------------------------------------------}
 
+{$IFDEF BDS13_UP} {$DEFINE BDS12_UP} {$ENDIF}
 {$IFDEF BDS12_UP} {$DEFINE BDS11_UP} {$ENDIF}
 {$IFDEF BDS11_UP} {$DEFINE BDS10_UP} {$ENDIF}
 {$IFDEF BDS10_UP} {$DEFINE BDS9_UP} {$ENDIF}
@@ -1033,6 +1065,7 @@
 { DELPHICOMPILERX_UP from DELPHICOMPILERX mappings                             }
 {------------------------------------------------------------------------------}
 
+{$IFDEF DELPHICOMPILER20} {$DEFINE DELPHICOMPILER20_UP} {$ENDIF}
 {$IFDEF DELPHICOMPILER19} {$DEFINE DELPHICOMPILER19_UP} {$ENDIF}
 {$IFDEF DELPHICOMPILER18} {$DEFINE DELPHICOMPILER18_UP} {$ENDIF}
 {$IFDEF DELPHICOMPILER17} {$DEFINE DELPHICOMPILER17_UP} {$ENDIF}
@@ -1056,6 +1089,7 @@
 { DELPHICOMPILERX_UP from DELPHICOMPILERX_UP mappings                          }
 {------------------------------------------------------------------------------}
 
+{$IFDEF DELPHICOMPILER20_UP} {$DEFINE DELPHICOMPILER19_UP} {$ENDIF}
 {$IFDEF DELPHICOMPILER19_UP} {$DEFINE DELPHICOMPILER18_UP} {$ENDIF}
 {$IFDEF DELPHICOMPILER18_UP} {$DEFINE DELPHICOMPILER17_UP} {$ENDIF}
 {$IFDEF DELPHICOMPILER17_UP} {$DEFINE DELPHICOMPILER16_UP} {$ENDIF}
@@ -1079,6 +1113,7 @@
 { COMPILERX_UP from COMPILERX mappings                                         }
 {------------------------------------------------------------------------------}
 
+{$IFDEF COMPILER20} {$DEFINE COMPILER20_UP} {$ENDIF}
 {$IFDEF COMPILER19} {$DEFINE COMPILER19_UP} {$ENDIF}
 {$IFDEF COMPILER18} {$DEFINE COMPILER18_UP} {$ENDIF}
 {$IFDEF COMPILER17} {$DEFINE COMPILER17_UP} {$ENDIF}
@@ -1103,6 +1138,7 @@
 { COMPILERX_UP from COMPILERX_UP mappings                                      }
 {------------------------------------------------------------------------------}
 
+{$IFDEF COMPILER20_UP} {$DEFINE COMPILER19_UP} {$ENDIF}
 {$IFDEF COMPILER19_UP} {$DEFINE COMPILER18_UP} {$ENDIF}
 {$IFDEF COMPILER18_UP} {$DEFINE COMPILER17_UP} {$ENDIF}
 {$IFDEF COMPILER17_UP} {$DEFINE COMPILER16_UP} {$ENDIF}
@@ -1126,6 +1162,7 @@
 { RTLX_UP from RTLX_UP mappings                                                }
 {------------------------------------------------------------------------------}
 
+{$IFDEF RTL270_UP} {$DEFINE RTL260_UP} {$ENDIF}
 {$IFDEF RTL260_UP} {$DEFINE RTL250_UP} {$ENDIF}
 {$IFDEF RTL250_UP} {$DEFINE RTL240_UP} {$ENDIF}
 {$IFDEF RTL240_UP} {$DEFINE RTL230_UP} {$ENDIF}
@@ -1446,7 +1483,6 @@
 
 {$IFDEF RTL240_UP}
   {$DEFINE HAS_UNIT_SYSTEM_ACTIONS}
-  {$DEFINE HAS_PROPERTY_STYLEELEMENTS}
 {$ENDIF RTL240_UP}
 
 {$IFDEF RTL250_UP}
