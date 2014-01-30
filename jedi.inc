@@ -315,7 +315,7 @@
   BDS10_UP     Defined when compiling with BDS 10.0 or higher
   BDS11_UP     Defined when compiling with BDS 11.0 or higher
   BDS12_UP     Defined when compiling with BDS 12.0 or higher
-  BDS13_UP     Defined when compiling with BDS 13.0 or higher
+  BDS14_UP     Defined when compiling with BDS 14.0 or higher
 
 - Compiler Versions
 
@@ -365,7 +365,7 @@
   COMPILER17_UP  Defined when compiling with Delphi or C++Builder Personalities of BDS 10.0 or higher
   COMPILER18_UP  Defined when compiling with Delphi or C++Builder Personalities of BDS 11.0 or higher
   COMPILER19_UP  Defined when compiling with Delphi or C++Builder Personalities of BDS 12.0 or higher
-  COMPILER20_UP  Defined when compiling with Delphi or C++Builder Personalities of BDS 13.0 or higher
+  COMPILER20_UP  Defined when compiling with Delphi or C++Builder Personalities of BDS 14.0 or higher
 
 
 - RTL Versions
@@ -402,7 +402,7 @@
   RTL240_UP     Defined when compiling with Delphi or C++Builder Personalities of BDS 10.0 or higher
   RTL250_UP     Defined when compiling with Delphi or C++Builder Personalities of BDS 11.0 or higher
   RTL260_UP     Defined when compiling with Delphi or C++Builder Personalities of BDS 12.0 or higher
-  RTL270_UP     Defined when compiling with Delphi or C++Builder Personalities of BDS 13.0 or higher
+  RTL270_UP     Defined when compiling with Delphi or C++Builder Personalities of BDS 14.0 or higher
 
 
 - CLR Versions
@@ -858,7 +858,7 @@
 
     {$IFDEF VER270} // RAD Studio XE6
       {$DEFINE BDS}
-      {$DEFINE BDS13}
+      {$DEFINE BDS14}
       {$DEFINE COMPILER20}
       {$IFDEF BCB}
         {$DEFINE BCB20}
@@ -873,7 +873,7 @@
 
     {$IFDEF UNKNOWN_COMPILER_VERSION} // adjust for newer version (always use latest version)
       {$DEFINE BDS}
-      {$DEFINE BDS13}
+      {$DEFINE BDS14}
       {$DEFINE COMPILER20}
       {$IFDEF BCB}
         {$DEFINE BCB20}
@@ -1032,7 +1032,7 @@
 { BDSX_UP from BDSX mappings                                                   }
 {------------------------------------------------------------------------------}
 
-{$IFDEF BDS13} {$DEFINE BDS13_UP} {$ENDIF}
+{$IFDEF BDS14} {$DEFINE BDS14_UP} {$ENDIF}
 {$IFDEF BDS12} {$DEFINE BDS12_UP} {$ENDIF}
 {$IFDEF BDS11} {$DEFINE BDS11_UP} {$ENDIF}
 {$IFDEF BDS10} {$DEFINE BDS10_UP} {$ENDIF}
@@ -1049,7 +1049,7 @@
 { BDSX_UP from BDSX_UP mappings                                                }
 {------------------------------------------------------------------------------}
 
-{$IFDEF BDS13_UP} {$DEFINE BDS12_UP} {$ENDIF}
+{$IFDEF BDS14_UP} {$DEFINE BDS12_UP} {$ENDIF}
 {$IFDEF BDS12_UP} {$DEFINE BDS11_UP} {$ENDIF}
 {$IFDEF BDS11_UP} {$DEFINE BDS10_UP} {$ENDIF}
 {$IFDEF BDS10_UP} {$DEFINE BDS9_UP} {$ENDIF}
