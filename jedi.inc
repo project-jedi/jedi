@@ -507,6 +507,7 @@
   HAS_UNIT_SYSTEM_UITYPES        Unit System.UITypes is available (D16+)
   HAS_UNIT_SYSTEM_ACTIONS        Unit System.Actions is available (D17+)
   DEPRECATED_SYSUTILS_ANSISTRINGS  AnsiString functions from SysUtils are deprecated and moved to System.AnsiStrings (D18+)
+  HAS_AUTOMATIC_DB_FIELDS        Database fields are automatically created/refreshed (D20+)
 
 
 - Compiler Settings
@@ -1488,6 +1489,10 @@
 {$IFDEF RTL250_UP}
   {$DEFINE DEPRECATED_SYSUTILS_ANSISTRINGS}
 {$ENDIF RTL250_UP}
+
+{$IFDEF RTL270_UP}
+  {$DEFINE HAS_AUTOMATIC_DB_FIELDS}
+{$ENDIF RTL270_UP}
 
 {------------------------------------------------------------------------------}
 { Cross-platform related defines                                               }
