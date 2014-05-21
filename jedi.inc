@@ -509,6 +509,8 @@
   DEPRECATED_SYSUTILS_ANSISTRINGS  AnsiString functions from SysUtils are deprecated and moved to System.AnsiStrings (D18+)
   HAS_PROPERTY_STYLEELEMENTS     TControl has a StyleElements property (D17+)
   HAS_AUTOMATIC_DB_FIELDS        Database fields are automatically created/refreshed (D20+)
+  HAS_EARGUMENTEXCEPTION         Exception class EArgumentException is available (D14+)
+  HAS_ENOTIMPLEMENTED            Exception class ENotImplemented is available (D15+)
 
 
 - Compiler Settings
@@ -1473,9 +1475,14 @@
   {$DEFINE HAS_UNIT_CHARACTER}
 {$ENDIF RTL200_UP}
 
+{$IFDEF RTL210_UP}
+  {$DEFINE HAS_EARGUMENTEXCEPTION}
+{$ENDIF RTL210_UP} 
+
 {$IFDEF RTL220_UP}
   {$DEFINE SUPPORTS_UINT64}
   {$DEFINE HAS_UNIT_REGULAREXPRESSIONSAPI}
+  {$DEFINE HAS_ENOTIMPLEMENTED}
 {$ENDIF RTL220_UP}
 
 {$IFDEF RTL230_UP}
