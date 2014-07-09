@@ -1093,7 +1093,7 @@
 { BDSX_UP from BDSX_UP mappings                                                }
 {------------------------------------------------------------------------------}
 
-{$IFDEF BDS15_UP} {$DEFINE BDS13_UP} {$ENDIF}
+{$IFDEF BDS15_UP} {$DEFINE BDS14_UP} {$ENDIF}
 {$IFDEF BDS14_UP} {$DEFINE BDS12_UP} {$ENDIF}
 {$IFDEF BDS12_UP} {$DEFINE BDS11_UP} {$ENDIF}
 {$IFDEF BDS11_UP} {$DEFINE BDS10_UP} {$ENDIF}
