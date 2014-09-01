@@ -528,7 +528,7 @@
   HAS_EARGUMENTEXCEPTION         Exception class EArgumentException is available (D14+)
   HAS_ENOTIMPLEMENTED            Exception class ENotImplemented is available (D15+)
   HAS_UNIT_VCL_THEMES            Unit Vcl.Themes is available (D16+)
-  HAS_UNIT_UXTHEME               Unit (Vcl.)UxTheme is available (D12+)
+  HAS_UNIT_UXTHEME               Unit (Vcl.)UxTheme is available (D7+)
 
 
 - Compiler Settings
