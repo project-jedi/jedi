@@ -527,6 +527,8 @@
   HAS_AUTOMATIC_DB_FIELDS        Database fields are automatically created/refreshed (D20+)
   HAS_EARGUMENTEXCEPTION         Exception class EArgumentException is available (D14+)
   HAS_ENOTIMPLEMENTED            Exception class ENotImplemented is available (D15+)
+  HAS_UNIT_VCL_THEMES            Unit Vcl.Themes is available (D16+)
+  HAS_UNIT_UXTHEME               Unit (Vcl.)UxTheme is available (D12+)
 
 
 - Compiler Settings
@@ -1507,6 +1509,10 @@
   {$DEFINE XPLATFORM_RTL}
 {$ENDIF RTL140_UP}
 
+{$IFDEF RTL150_UP}
+  {$DEFINE HAS_UNIT_UXTHEME}
+{$ENDIF RTL150_UP}
+
 {$IFDEF RTL170_UP}
   {$DEFINE HAS_UNIT_HTTPPROD}
 {$ENDIF RTL170_UP}
@@ -1534,6 +1540,7 @@
 {$IFDEF RTL230_UP}
   {$DEFINE HAS_UNITSCOPE}
   {$DEFINE HAS_UNIT_SYSTEM_UITYPES}
+  {$DEFINE HAS_UNIT_VCL_THEMES}
 {$ENDIF RTL230_UP}
 
 {$IFDEF RTL240_UP}
