@@ -910,16 +910,16 @@
 
     {$IFDEF UNKNOWN_COMPILER_VERSION} // adjust for newer version (always use latest version)
       {$DEFINE BDS}
-      {$DEFINE BDS14}
-      {$DEFINE COMPILER20}
+      {$DEFINE BDS15}
+      {$DEFINE COMPILER21}
       {$IFDEF BCB}
-        {$DEFINE BCB20}
+        {$DEFINE BCB21}
       {$ELSE}
-        {$DEFINE DELPHI20}
-        {$DEFINE DELPHIXE6} // synonym to DELPHI20
-        {$DEFINE DELPHICOMPILER20}
+        {$DEFINE DELPHI21}
+        {$DEFINE DELPHIXE7} // synonym to DELPHI20
+        {$DEFINE DELPHICOMPILER21}
       {$ENDIF BCB}
-      {$DEFINE RTL270_UP}
+      {$DEFINE RTL280_UP}
       {$UNDEF UNKNOWN_COMPILER_VERSION}
     {$ENDIF}
 
