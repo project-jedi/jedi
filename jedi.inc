@@ -157,7 +157,7 @@
   DELPHI22            Defined when compiling with Delphi XE8 for Win32 (Codename ELBRUS)
   DELPHIXE8           Alias for DELPHI22
   DELPHI23            Defined when compiling with Delphi 10 for Win32 (Codename SEATTLE)
-  DELPHI10          Alias for DELPHI23
+  DELPHIX_SEATTLE     Alias for DELPHI23
   DELPHI1_UP          Defined when compiling with Delphi 1 or higher
   DELPHI2_UP          Defined when compiling with Delphi 2 or higher
   DELPHI3_UP          Defined when compiling with Delphi 3 or higher
@@ -193,7 +193,7 @@
   DELPHI22_UP         Defined when compiling with Delphi XE8 for Win32 or higher
   DELPHIXE8_UP        Alias for DELPHI22_UP
   DELPHI23_UP         Defined when compiling with Delphi 10 for Win32 or higher
-  DELPHI10_UP       Alias for DELPHI23_UP
+  DELPHIX_SEATTLE_UP  Alias for DELPHI23_UP
 
 
 - Kylix Versions
@@ -954,7 +954,7 @@
         {$DEFINE BCB23}
       {$ELSE}
         {$DEFINE DELPHI23}
-        {$DEFINE DELPHI10} // synonym to DELPHI23
+        {$DEFINE DELPHIX_SEATTLE} // synonym to DELPHI23
         {$DEFINE DELPHICOMPILER23}
       {$ENDIF BCB}
       {$DEFINE RTL300_UP}
@@ -969,7 +969,7 @@
         {$DEFINE BCB23}
       {$ELSE}
         {$DEFINE DELPHI23}
-        {$DEFINE DELPHI10} // synonym to DELPHI23
+        {$DEFINE DELPHIX_SEATTLE} // synonym to DELPHI23
         {$DEFINE DELPHICOMPILER23}
       {$ENDIF BCB}
       {$DEFINE RTL300_UP}
@@ -1020,7 +1020,7 @@
 {------------------------------------------------------------------------------}
 
 {$IFDEF DELPHI23_UP}
-  {$DEFINE DELPHI10_UP} // synonym to DELPHI23_UP
+  {$DEFINE DELPHIX_SEATTLE_UP} // synonym to DELPHI23_UP
   {$DEFINE DELPHI22_UP}
 {$ENDIF}
 
