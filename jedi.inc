@@ -156,7 +156,7 @@
   DELPHIXE7           Alias for DELPHI21
   DELPHI22            Defined when compiling with Delphi XE8 for Win32 (Codename ELBRUS)
   DELPHIXE8           Alias for DELPHI22
-  DELPHI23            Defined when compiling with Delphi 10 for Win32 (Codename SEATTLE)
+  DELPHI23            Defined when compiling with Delphi 10 for Win32 (Codename AITANA)
   DELPHIX_SEATTLE     Alias for DELPHI23
   DELPHI1_UP          Defined when compiling with Delphi 1 or higher
   DELPHI2_UP          Defined when compiling with Delphi 2 or higher
@@ -287,7 +287,7 @@
   BCB20        Defined when compiling with C++Builder Personality of RAD Studio XE6 (also known as C++Builder XE6) (Codename PROTEUS)
   BCB21        Defined when compiling with C++Builder Personality of RAD Studio XE7 (also known as C++Builder XE7) (Codename CARPATHIA)
   BCB22        Defined when compiling with C++Builder Personality of RAD Studio XE8 (also known as C++Builder XE8) (Codename ELBRUS)
-  BCB23        Defined when compiling with C++Builder Personality of RAD Studio 10 Seattle (also known as C++Builder 10 Seattle) (Codename SEATTLE)
+  BCB23        Defined when compiling with C++Builder Personality of RAD Studio 10 Seattle (also known as C++Builder 10 Seattle) (Codename AITANA)
   BCB1_UP      Defined when compiling with C++Builder 1 or higher
   BCB3_UP      Defined when compiling with C++Builder 3 or higher
   BCB4_UP      Defined when compiling with C++Builder 4 or higher
@@ -334,7 +334,7 @@
   BDS14        Defined when compiling with BDS 14.0 (Embarcadero RAD Studio XE6) (Codename PROTEUS)
   BDS15        Defined when compiling with BDS 15.0 (Embarcadero RAD Studio XE7) (Codename CARPATHIA)
   BDS16        Defined when compiling with BDS 16.0 (Embarcadero RAD Studio XE8) (Codename ELBRUS)
-  BDS17        Defined when compiling with BDS 17.0 (Embarcadero RAD Studio 10) (Codename SEATTLE)
+  BDS17        Defined when compiling with BDS 17.0 (Embarcadero RAD Studio 10) (Codename AITANA)
   BDS2_UP      Defined when compiling with BDS 2.0 or higher
   BDS3_UP      Defined when compiling with BDS 3.0 or higher
   BDS4_UP      Defined when compiling with BDS 4.0 or higher
