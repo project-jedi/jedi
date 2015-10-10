@@ -488,7 +488,7 @@
   SUPPORTS_NODEFINE              Compiler supports the $NODEFINE directive (D4+/BCB3+)
   SUPPORTS_LONGWORD              Compiler supports the LongWord type (unsigned 32 bit) (D4+/BCB4+)
   SUPPORTS_INT64                 Compiler supports the Int64 type (D4+/BCB4+)
-  SUPPORTS_UINT64                Compiler supports the UInt64 type (D XE+ ?)
+  SUPPORTS_UINT64                Compiler supports the UInt64 type (D14+ ?)
   SUPPORTS_DYNAMICARRAYS         Compiler supports dynamic arrays (D4+/BCB4+)
   SUPPORTS_DEFAULTPARAMS         Compiler supports default parameters (D4+/BCB4+)
   SUPPORTS_OVERLOAD              Compiler supports overloading (D4+/BCB4+)
@@ -1618,11 +1618,11 @@
 {$ENDIF RTL200_UP}
 
 {$IFDEF RTL210_UP}
+  {$DEFINE SUPPORTS_UINT64}
   {$DEFINE HAS_EARGUMENTEXCEPTION}
 {$ENDIF RTL210_UP} 
 
 {$IFDEF RTL220_UP}
-  {$DEFINE SUPPORTS_UINT64}
   {$DEFINE HAS_UNIT_REGULAREXPRESSIONSAPI}
   {$DEFINE HAS_ENOTIMPLEMENTED}
 {$ENDIF RTL220_UP}
