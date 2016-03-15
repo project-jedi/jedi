@@ -607,20 +607,32 @@
   {$ENDIF LINUX}
   {$IFNDEF CLR}
     {$IFNDEF CPUX86}
+      // CPUX86 is not defined, which means it most likely is a 64 bits compiler.
+      // However, this is only the case if either of two other symbols are defined:
+      // http://docwiki.embarcadero.com/RADStudio/Seattle/en/Conditional_compilation_%28Delphi%29
+      {$DEFINE CPU64}
+      {$DEFINE DELPHI64_TEMPORARY}
       {$IFNDEF CPUX64}
-        {$DEFINE CPU386}  // For Borland compilers select the x86 compat assembler by default
-        {$DEFINE CPU32}   // Assume Borland compilers are 32-bit (rather than 64-bit)
-        {$DEFINE CPUASM}
-      {$ELSE ~CPUX64}
-        {$DEFINE CPU64}
-        {$DEFINE CPUASM}
-        {$DEFINE DELPHI64_TEMPORARY}
+        {$IFNDEF CPU64BITS}
+          {$DEFINE CPU386}  // None of the two 64-bits symbols are defined, assume this is 32-bit
+          {$DEFINE CPU32}   
+          {$UNDEF CPU64}
+          {$UNDEF DELPHI64_TEMPORARY}
+        {$ENDIF ~CPU64BITS}
       {$ENDIF ~CPUX64}
     {$ELSE ~CPUX86}
       {$DEFINE CPU386}
       {$DEFINE CPU32}
-      {$DEFINE CPUASM}
     {$ENDIF ~CPUX86}
+
+    // The ASSEMBLER symbol appeared with Delphi 7
+    {$IFNDEF COMPILER7_UP}
+      {$DEFINE CPUASM}
+    {$ELSE}
+      {$IFDEF ASSEMBLER}
+        {$DEFINE CPUASM}
+      {$ENDIF ASSEMBLER}
+    {$ENDIF ~COMPILER7_UP}    
   {$ENDIF ~CLR}
 {$ENDIF BORLAND}
 
