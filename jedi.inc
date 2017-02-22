@@ -160,6 +160,8 @@
   DELPHIX_SEATTLE     Alias for DELPHI23
   DELPHI24            Defined when compiling with Delphi 10.1 for Win32 (Codename BIGBEN)
   DELPHIX_BERLIN      Alias for DELPHI24
+  DELPHI25            Defined when compiling with Delphi 10.1 for Win32 (Codename BIGBEN)
+  DELPHIX_TOKYO       Alias for DELPHI25
   DELPHI1_UP          Defined when compiling with Delphi 1 or higher
   DELPHI2_UP          Defined when compiling with Delphi 2 or higher
   DELPHI3_UP          Defined when compiling with Delphi 3 or higher
@@ -199,7 +201,7 @@
   DELPHI24_UP         Defined when compiling with Delphi 10.1 for Win32 or higher
   DELPHIX_BERLIN_UP   Alias for DELPHI24_UP
   DELPHI25_UP         Defined when compiling with Delphi 10.2 for Win32 or higher
-
+  DELPHIX_TOKYO_UP    Alias for DELPHI2%_UP
 
 - Kylix Versions
 
@@ -298,7 +300,7 @@
   BCB22        Defined when compiling with C++Builder Personality of RAD Studio XE8 (also known as C++Builder XE8) (Codename ELBRUS)
   BCB23        Defined when compiling with C++Builder Personality of RAD Studio 10 Seattle (also known as C++Builder 10 Seattle) (Codename AITANA)
   BCB24        Defined when compiling with C++Builder Personality of RAD Studio 10.1 Berlin (also known as C++Builder 10.1 Berlin) (Codename BIGBEN)
-  BCB25        Defined when compiling with C++Builder Personality of RAD Studio 10.2 (also known as C++Builder 10.2) (Codename ????)
+  BCB25        Defined when compiling with C++Builder Personality of RAD Studio 10.2 Tokyo (also known as C++Builder 10.2) (Codename GODZILLA)
   BCB1_UP      Defined when compiling with C++Builder 1 or higher
   BCB3_UP      Defined when compiling with C++Builder 3 or higher
   BCB4_UP      Defined when compiling with C++Builder 4 or higher
@@ -1025,6 +1027,7 @@
         {$DEFINE BCB25}
       {$ELSE}
         {$DEFINE DELPHI25}
+        {$DEFINE DELPHIX_TOKYO}  // synonym to DELPHI25
         {$DEFINE DELPHICOMPILER25}
       {$ENDIF BCB}
       {$DEFINE RTL320_UP}
@@ -1091,6 +1094,7 @@
 {------------------------------------------------------------------------------}
 
 {$IFDEF DELPHI25_UP}
+  {$DEFINE DELPHIX_TOKYO_UP} // synonym to DELPHI25_UP
   {$DEFINE DELPHI24_UP}
 {$ENDIF}
 
