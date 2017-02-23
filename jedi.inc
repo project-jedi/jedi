@@ -351,7 +351,7 @@
   BDS16        Defined when compiling with BDS 16.0 (Embarcadero RAD Studio XE8) (Codename ELBRUS)
   BDS17        Defined when compiling with BDS 17.0 (Embarcadero RAD Studio 10) (Codename AITANA)
   BDS18        Defined when compiling with BDS 18.0 (Embarcadero RAD Studio 10.1) (Codename BIGBEN)
-  BDS19        Defined when compiling with BDS 19.0 (Embarcadero RAD Studio 10.2) (Codename ?????)
+  BDS19        Defined when compiling with BDS 19.0 (Embarcadero RAD Studio 10.2) (Codename GODZILLA)
   BDS2_UP      Defined when compiling with BDS 2.0 or higher
   BDS3_UP      Defined when compiling with BDS 3.0 or higher
   BDS4_UP      Defined when compiling with BDS 4.0 or higher
