@@ -201,7 +201,7 @@
   DELPHI24_UP         Defined when compiling with Delphi 10.1 for Win32 or higher
   DELPHIX_BERLIN_UP   Alias for DELPHI24_UP
   DELPHI25_UP         Defined when compiling with Delphi 10.2 for Win32 or higher
-  DELPHIX_TOKYO_UP    Alias for DELPHI2%_UP
+  DELPHIX_TOKYO_UP    Alias for DELPHI25_UP
 
 - Kylix Versions
 
