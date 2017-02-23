@@ -160,7 +160,7 @@
   DELPHIX_SEATTLE     Alias for DELPHI23
   DELPHI24            Defined when compiling with Delphi 10.1 for Win32 (Codename BIGBEN)
   DELPHIX_BERLIN      Alias for DELPHI24
-  DELPHI25            Defined when compiling with Delphi 10.1 for Win32 (Codename BIGBEN)
+  DELPHI25            Defined when compiling with Delphi 10.2 for Win32 (Codename GODZILLA)
   DELPHIX_TOKYO       Alias for DELPHI25
   DELPHI1_UP          Defined when compiling with Delphi 1 or higher
   DELPHI2_UP          Defined when compiling with Delphi 2 or higher
