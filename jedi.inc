@@ -629,7 +629,9 @@
 
 {$IFDEF BORLAND}
   {$IFDEF LINUX}
-    {$DEFINE KYLIX}
+    {$IFDEF VER140} // Only under Delphi 6, LINUX implies Kylix
+      {$DEFINE KYLIX}
+    {$ENDIF}
   {$ENDIF LINUX}
   {$IFNDEF CLR}
     {$IFNDEF CPUX86}
