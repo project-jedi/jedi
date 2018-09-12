@@ -584,7 +584,7 @@
   HAS_UNIT_VCL_THEMES            Unit Vcl.Themes is available (D16+)
   HAS_UNIT_UXTHEME               Unit (Vcl.)UxTheme is available (D7+)
   HAS_EXCEPTION_STACKTRACE       Exception class has the StackTrace propery (D12+)
-  SUPPORTS_LEGACYIFEND           The compiler supports legacy IFEND (D18+)
+  SUPPORTS_LEGACYIFEND           Compiler supports the LEGACYIFEND directive (D18+)
 
 
 - Compiler Settings
