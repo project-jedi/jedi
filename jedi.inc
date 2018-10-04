@@ -585,6 +585,7 @@
   HAS_UNIT_UXTHEME               Unit (Vcl.)UxTheme is available (D7+)
   HAS_EXCEPTION_STACKTRACE       Exception class has the StackTrace propery (D12+)
   SUPPORTS_LEGACYIFEND           Compiler supports the LEGACYIFEND directive (D17+)
+  DEPRECATED_TCHARACTER          TCharacter is deprecated and replaced by a record helper on Char (D18+)
 
 
 - Compiler Settings
@@ -1744,6 +1745,7 @@
 
 {$IFDEF RTL250_UP}
   {$DEFINE DEPRECATED_SYSUTILS_ANSISTRINGS}
+  {$DEFINE DEPRECATED_TCHARACTER}
 {$ENDIF RTL250_UP}
 
 {$IFDEF RTL270_UP}
