@@ -1612,6 +1612,8 @@
     {$IF DEFINED(FPC_FULLVERSION)}
       { 2.2.4 or newer }
 
+      {$DEFINE SUPPORTS_SETPEFLAGS}
+
       {$IF FPC_FULLVERSION >= 20400}
         {$DEFINE SUPPORTS_UINT64}
         {$DEFINE SUPPORTS_EXPERIMENTAL_WARNINGS}
@@ -1636,6 +1638,10 @@
       {$ENDIF}
     {$ELSE}
       { older than 2.2.4 }
+
+      {$IFDEF VER2_2}
+        {$SUPPORTS_SETPEFLAGS}
+      {$ENDIF}
     {$ENDIF}
   {$ENDIF}
 {$ENDIF FPC}
