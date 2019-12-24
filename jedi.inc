@@ -1614,6 +1614,7 @@
       { 2.2.4 or newer }
 
       {$DEFINE SUPPORTS_SETPEFLAGS}
+      {$DEFINE SUPPORTS_STRICT}
 
       {$IF FPC_FULLVERSION >= 20400}
         {$DEFINE SUPPORTS_UINT64}
@@ -1654,6 +1655,7 @@
 
       {$IFDEF VER2_2}
         {$SUPPORTS_SETPEFLAGS}
+        {$SUPPORTS_STRICT}
       {$ENDIF}
     {$ENDIF}
   {$ENDIF}
