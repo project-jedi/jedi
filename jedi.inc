@@ -1609,6 +1609,8 @@
 
       {$IF FPC_FULLVERSION >= 30000}
         {$DEFINE SUPPORTS_DEPRECATED_DETAILS}
+
+        {$DEFINE HAS_UNIT_CHARACTER}
       {$ENDIF}
     {$ELSE}
       { older than 2.2.4 }
