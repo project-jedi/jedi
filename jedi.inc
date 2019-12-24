@@ -553,6 +553,9 @@
   SUPPORTS_FINAL                 Compiler supports final keyword (D9.NET, D10+)
   SUPPORTS_METHODINFO            Compiler supports the METHODINFO directives (D10+)
   SUPPORTS_GENERICS              Compiler supports generic implementations (D11.NET, D12+)
+  SUPPORTS_GENERIC_TYPES         Compiler supports generic implementations of types (D11.NET, D12+, FPC)
+  SUPPORTS_GENERIC_METHODS       Compiler supports generic implementations of methods (D11.NET, D12+, FPC)
+  SUPPORTS_GENERIC_FUNCS         Compilre supports generic implementations of global functions (FPC)
   SUPPORTS_DEPRECATED_DETAILS    Compiler supports additional text for the deprecated directive (D11.NET, D12+)
   ACCEPT_DEPRECATED              Compiler supports or ignores the deprecated directive (D6+/BCB6+/FPC)
   ACCEPT_PLATFORM                Compiler supports or ignores the platform directive (D6+/BCB6+/FPC)
@@ -1649,8 +1652,15 @@
 
       {$IF FPC_FULLVERSION >= 30000}
         {$DEFINE SUPPORTS_DEPRECATED_DETAILS}
+        {$DEFINE SUPPORTS_GENERICS}
+        {$DEFINE SUPPORTS_GENERIC_TYPES}
 
         {$DEFINE HAS_UNIT_CHARACTER}
+      {$ENDIF}
+
+      {$IF FPC_FULLVERSION >= 30200}
+        {$DEFINE SUPPORTS_GENERIC_METHODS}
+        {$DEFINE SUPPORTS_GENERIC_FUNCS}
       {$ENDIF}
     {$ELSE}
       { older than 2.2.4 }
@@ -1760,12 +1770,16 @@
 {$IFDEF COMPILER11_UP}
   {$IFDEF CLR}
     {$DEFINE SUPPORTS_GENERICS}
+    {$DEFINE SUPPORTS_GENERIC_TYPES}
+    {$DEFINE SUPPORTS_GENERIC_METHODS}
     {$DEFINE SUPPORTS_DEPRECATED_DETAILS}
   {$ENDIF CLR}
 {$ENDIF COMPILER11_UP}
 
 {$IFDEF COMPILER12_UP}
   {$DEFINE SUPPORTS_GENERICS}
+  {$DEFINE SUPPORTS_GENERIC_TYPES}
+  {$DEFINE SUPPORTS_GENERIC_METHODS}
   {$DEFINE SUPPORTS_DEPRECATED_DETAILS}
   {$DEFINE SUPPORTS_INT_ALIASES}
   {$IFNDEF CLR}
