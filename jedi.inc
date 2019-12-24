@@ -1667,6 +1667,7 @@
         {$DEFINE SUPPORTS_WEAKPACKAGEUNIT}
 
         {$DEFINE HAS_UNIT_RTTI}
+        {$DEFINE HAS_UNIT_SYSTEM_UITYPES}
       {$ENDIF}
     {$ELSE}
       { older than 2.2.4 }
