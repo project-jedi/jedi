@@ -1544,6 +1544,8 @@
   {$IFDEF  VER1_0}
      Please use FPC 2.0 or higher to compile this.
   {$ELSE}
+    { FPC_FULLVERSION is available from 2.2.4 on }
+
     {$DEFINE SUPPORTS_OUTPARAMS}
     {$DEFINE SUPPORTS_WIDECHAR}
     {$DEFINE SUPPORTS_WIDESTRING}
@@ -1599,14 +1601,24 @@
 
     {$DEFINE XPLATFORM_RTL}
 
-    {$IFDEF VER2_2}
+    {$IF DEFINED(FPC_FULLVERSION)}
+      { 2.2.4 or newer }
+
       {$DEFINE SUPPORTS_DISPINTERFACE}
       {$DEFINE SUPPORTS_IMPLEMENTS}
       {$DEFINE SUPPORTS_DISPID}
-    {$ENDIF}
 
-    {$IFDEF VER3}
-      {$DEFINE SUPPORTS_DEPRECATED_DETAILS}
+      {$IF FPC_FULLVERSION >= 30000}
+        {$DEFINE SUPPORTS_DEPRECATED_DETAILS}
+      {$ENDIF}
+    {$ELSE}
+      { older than 2.2.4 }
+
+      {$IFDEF VER2_2}
+        {$DEFINE SUPPORTS_DISPINTERFACE}
+        {$DEFINE SUPPORTS_IMPLEMENTS}
+        {$DEFINE SUPPORTS_DISPID}
+      {$ENDIF}
     {$ENDIF}
   {$ENDIF}
 {$ENDIF FPC}
