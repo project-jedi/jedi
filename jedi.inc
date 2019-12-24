@@ -1664,6 +1664,8 @@
         {$DEFINE SUPPORTS_GENERIC_METHODS}
         {$DEFINE SUPPORTS_GENERIC_FUNCS}
         {$DEFINE SUPPORTS_WEAKPACKAGEUNIT}
+
+        {$DEFINE HAS_UNIT_RTTI}
       {$ENDIF}
     {$ELSE}
       { older than 2.2.4 }
