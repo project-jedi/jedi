@@ -555,7 +555,7 @@
   SUPPORTS_GENERICS              Compiler supports generic implementations (D11.NET, D12+)
   SUPPORTS_GENERIC_TYPES         Compiler supports generic implementations of types (D11.NET, D12+, FPC)
   SUPPORTS_GENERIC_METHODS       Compiler supports generic implementations of methods (D11.NET, D12+, FPC)
-  SUPPORTS_GENERIC_FUNCS         Compilre supports generic implementations of global functions (FPC)
+  SUPPORTS_GENERIC_FUNCS         Compiler supports generic implementations of global functions (FPC)
   SUPPORTS_DEPRECATED_DETAILS    Compiler supports additional text for the deprecated directive (D11.NET, D12+)
   ACCEPT_DEPRECATED              Compiler supports or ignores the deprecated directive (D6+/BCB6+/FPC)
   ACCEPT_PLATFORM                Compiler supports or ignores the platform directive (D6+/BCB6+/FPC)
