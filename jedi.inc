@@ -680,16 +680,6 @@
       {$DEFINE CPU386}
       {$DEFINE CPU32}
     {$ENDIF ~CPUX86}
-
-    // The ASSEMBLER symbol appeared with Delphi 7
-    {$IFNDEF COMPILER7_UP}
-      {$DEFINE CPUASM}
-    {$ELSE}
-      {$IFDEF ASSEMBLER}
-        {$DEFINE CPUASM}
-      {$ENDIF ASSEMBLER}
-    {$ENDIF ~COMPILER7_UP}    
-  {$ENDIF ~CLR}
 {$ENDIF BORLAND}
 
 {------------------------------------------------------------------------------}
@@ -1721,6 +1711,18 @@
 {$IFDEF CLR}
   {$DEFINE SUPPORTS_UNICODE}
 {$ENDIF CLR}
+
+{$IFDEF BORLAND}
+    // The ASSEMBLER symbol appeared with Delphi 7
+    {$IFNDEF COMPILER7_UP}
+      {$DEFINE CPUASM}
+    {$ELSE}
+      {$IFDEF ASSEMBLER}
+        {$DEFINE CPUASM}
+      {$ENDIF ASSEMBLER}
+    {$ENDIF ~COMPILER7_UP}
+  {$ENDIF ~CLR}
+{$ENDIF BORLAND}
 
 {$IFDEF COMPILER1_UP}
   {$DEFINE SUPPORTS_CONSTPARAMS}
