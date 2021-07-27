@@ -1914,6 +1914,10 @@
   {$DEFINE HAS_AUTOMATIC_DB_FIELDS}
 {$ENDIF RTL270_UP}
 
+{$IFDEF RTL320_UP}
+  {$UNDEF HAS_UNIT_LIBC}
+{$ENDIF RTL320_UP}
+
 {------------------------------------------------------------------------------}
 { Cross-platform related defines                                               }
 {------------------------------------------------------------------------------}
