@@ -680,6 +680,7 @@
       {$DEFINE CPU386}
       {$DEFINE CPU32}
     {$ENDIF ~CPUX86}
+  {$ENDIF ~CLR}
 {$ENDIF BORLAND}
 
 {------------------------------------------------------------------------------}
@@ -1713,6 +1714,7 @@
 {$ENDIF CLR}
 
 {$IFDEF BORLAND}
+  {$IFNDEF CLR}
     // The ASSEMBLER symbol appeared with Delphi 7
     {$IFNDEF COMPILER7_UP}
       {$DEFINE CPUASM}
