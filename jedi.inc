@@ -166,7 +166,7 @@
   DELPHIX_RIO            Alias for DELPHI26
   DELPHI27               Defined when compiling with Delphi 10.4 for Win32 (Codename DENALI)
   DELPHIX_SYDNEY         Alias for DELPHI27
-  DELPHI28               Defined when compiling with Delphi 10.4 for Win32 (Codename OLYMPUS)
+  DELPHI28               Defined when compiling with Delphi 11 for Win32 (Codename OLYMPUS)
   DELPHIX_ALEXANDRIA     Alias for DELPHI28
   DELPHI1_UP             Defined when compiling with Delphi 1 or higher
   DELPHI2_UP             Defined when compiling with Delphi 2 or higher
