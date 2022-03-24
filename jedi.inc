@@ -629,6 +629,7 @@
   SUPPORTS_LEGACYIFEND           Compiler supports the LEGACYIFEND directive (D17+)
   DEPRECATED_TCHARACTER          TCharacter is deprecated and replaced by a record helper on Char (D18+)
   HAS_PROPERTY_OLDCREATEORDER    The OldCreateOrder property is available (D5 - D27)
+  SUPPORTS_SCOPEDENUMS           Compiler supports the SCOPEDENUMS directive and enumerations can be scoped (D12+)
 
 
 - Compiler Settings
@@ -1935,6 +1936,7 @@
   {$DEFINE HAS_UNIT_PNGIMAGE}
   {$DEFINE HAS_UNIT_CHARACTER}
   {$DEFINE HAS_EXCEPTION_STACKTRACE}
+  {$DEFINE SUPPORTS_SCOPEDENUMS}
 {$ENDIF RTL200_UP}
 
 {$IFDEF RTL210_UP}
