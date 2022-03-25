@@ -592,10 +592,10 @@
   SUPPORTS_DEPRECATED_WARNINGS   Compiler supports deprecated warnings (D6+/BCB6+)
   SUPPORTS_LIBRARY_WARNINGS      Compiler supports library warnings (D6+/BCB6+)
   SUPPORTS_PLATFORM_WARNINGS     Compiler supports platform warnings (D6+/BCB6+)
-  SUPPORTS_UNSAFE_WARNINGS       Compiler supports unsafe warnings (D7)
-  SUPPORTS_WEAKPACKAGEUNIT       Compiler supports the WEAKPACKAGEUNIT directive
-  SUPPORTS_COMPILETIME_MESSAGES  Compiler supports the MESSAGE directive
-  SUPPORTS_PACKAGES              Compiler supports Packages
+  SUPPORTS_UNSAFE_WARNINGS       Compiler supports unsafe warnings (D7+)
+  SUPPORTS_WEAKPACKAGEUNIT       Compiler supports the WEAKPACKAGEUNIT directive (D3+)
+  SUPPORTS_COMPILETIME_MESSAGES  Compiler supports the MESSAGE directive (D6+)
+  SUPPORTS_PACKAGES              Compiler supports Packages (D1+)
   HAS_UNIT_LIBC                  Unit Libc exists (Kylix, FPC on Linux/x86)
   HAS_UNIT_RTLCONSTS             Unit RTLConsts exists (D6+/BCB6+/FPC)
   HAS_UNIT_TYPES                 Unit Types exists (D6+/BCB6+/FPC)
