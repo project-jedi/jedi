@@ -1757,8 +1757,8 @@
       { older than 2.2.4 }
 
       {$IFDEF VER2_2}
-        {$SUPPORTS_SETPEFLAGS}
-        {$SUPPORTS_STRICT}
+        {$DEFINE SUPPORTS_SETPEFLAGS}
+        {$DEFINE SUPPORTS_STRICT}
       {$ENDIF}
     {$IFEND}
   {$ENDIF}
