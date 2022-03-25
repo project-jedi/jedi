@@ -631,6 +631,7 @@
   HAS_ENOTIMPLEMENTED            Exception class ENotImplemented is available (D15+)
   HAS_UNIT_VCL_THEMES            Unit Vcl.Themes is available (D16+)
   USE_64BIT_TYPES                Use 64 bit types (D16+)
+  SUPPORTS_EXCESSPRECISION       Compiler supports the {$EXCESSPRECISION ON|OFF} directive (D16+)
   HAS_UNIT_UXTHEME               Unit (Vcl.)UxTheme is available (D7+)
   HAS_EXCEPTION_STACKTRACE       Exception class has the StackTrace propery (D12+)
   SUPPORTS_LEGACYIFEND           Compiler supports the LEGACYIFEND directive (D17+)
@@ -1910,6 +1911,7 @@
 
 {$IFDEF COMPILER16_UP}
   {$DEFINE USE_64BIT_TYPES}
+  {$DEFINE SUPPORTS_EXCESSPRECISION}
 {$ENDIF COMPILER16_UP}
 
 {$IFDEF COMPILER17_UP}
