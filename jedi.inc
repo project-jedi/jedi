@@ -632,6 +632,7 @@
   HAS_UNIT_VCL_THEMES            Unit Vcl.Themes is available (D16+)
   USE_64BIT_TYPES                Use 64 bit types (D16+)
   SUPPORTS_EXCESSPRECISION       Compiler supports the {$EXCESSPRECISION ON|OFF} directive (D16+)
+  SUPPORTS_TSTRINGS_ENCODING     RTL supports TStrings.Encoding (D16+)
   HAS_UNIT_UXTHEME               Unit (Vcl.)UxTheme is available (D7+)
   HAS_EXCEPTION_STACKTRACE       Exception class has the StackTrace propery (D12+)
   SUPPORTS_LEGACYIFEND           Compiler supports the LEGACYIFEND directive (D17+)
@@ -1969,6 +1970,7 @@
   {$DEFINE HAS_UNIT_VCL_THEMES}
   {$DEFINE HAS_UNIT_ZIP}
   {$DEFINE HAS_UNIT_ZLIB}
+  {$DEFINE SUPPORTS_TSTRINGS_ENCODING}
 {$ENDIF RTL230_UP}
 
 {$IFDEF RTL240_UP}
