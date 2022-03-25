@@ -609,7 +609,7 @@
   HAS_UNIT_PNGIMAGE              Unit PngImage exists (D12+)
   HAS_UNIT_CHARACTER             Unit Character exists (D12+)
   XPLATFORM_RTL                  The RTL supports crossplatform function names (e.g. RaiseLastOSError) (D6+/BCB6+/FPC)
-  SUPPORTS_POINTERMATH           Compiler supports arithmetic operations on typed pointers (D12+)
+  SUPPORTS_TYPED_POINTERMATH     Compiler supports arithmetic operations on typed pointers (D12+)
   SUPPORTS_STRINGCHECKS          Compiler supports the STRINGCHECKS directive (D12+) (automatic payload-checks using Assure*String functions, relevant for C++ Builder)
   SUPPORTS_UNICODE               string type is aliased to an unicode string (WideString or UnicodeString) (DX.NET, D12+)
   SUPPORTS_UNICODE_STRING        Compiler supports UnicodeString (D12+)
@@ -619,10 +619,10 @@
   SUPPORTS_CAST_INTERFACE_TO_OBJ The compiler supports casts from interfaces to objects (D14+)
   SUPPORTS_DELAYED_LOADING       The compiler generates stubs for delaying imported function loads (D14+)
   HAS_UNIT_REGULAREXPRESSIONSAPI Unit RegularExpressionsAPI is available (D15+)
-  HAS_UNITSCOPE                  Has unit scope (D16+)
+  HAS_UNITSCOPE                  Has unit scope, i.e. System.Classes instead of Classes (D16+)
   HAS_UNIT_SYSTEM_UITYPES        Unit System.UITypes is available (D16+)
-  HAS_UNIT_ZIP                   Unit Zip exists (D16+)
-  HAS_UNIT_ZLIB                  Unit ZLib exists (D16+)
+  HAS_UNIT_SYSTEM_ZIP            Unit System.Zip is available (D16+)
+  HAS_UNIT_SYSTEM_ZLIB           Unit System.ZLib is available (D16+)
   HAS_UNIT_SYSTEM_ACTIONS        Unit System.Actions is available (D17+)
   DEPRECATED_SYSUTILS_ANSISTRINGS  AnsiString functions from SysUtils are deprecated and moved to System.AnsiStrings (D18+)
   HAS_PROPERTY_STYLEELEMENTS     TControl has a StyleElements property (D17+)
@@ -632,7 +632,7 @@
   HAS_UNIT_VCL_THEMES            Unit Vcl.Themes is available (D16+)
   USE_64BIT_TYPES                Use 64 bit types (D16+)
   SUPPORTS_EXCESSPRECISION       Compiler supports the {$EXCESSPRECISION ON|OFF} directive (D16+)
-  SUPPORTS_TSTRINGS_ENCODING     RTL supports TStrings.Encoding (D16+)
+  HAS_TSTRINGS_ENCODING          RTL supports TStrings.Encoding (D16+)
   SUPPORTS_EXTENDED_IS_DOUBLE    Compiler uses Double instead of Extended (64 bit D16+)
   HAS_UNIT_UXTHEME               Unit (Vcl.)UxTheme is available (D7+)
   HAS_EXCEPTION_STACKTRACE       Exception class has the StackTrace propery (D12+)
@@ -1893,7 +1893,7 @@
   {$DEFINE SUPPORTS_GENERIC_TYPES}
   {$DEFINE SUPPORTS_GENERIC_METHODS}
   {$DEFINE SUPPORTS_DEPRECATED_DETAILS}
-  {$DEFINE SUPPORTS_POINTERMATH}
+  {$DEFINE SUPPORTS_TYPED_POINTERMATH}
   {$DEFINE SUPPORTS_STRINGCHECKS}
   {$DEFINE SUPPORTS_INT_ALIASES}
   {$DEFINE SUPPORTS_SCOPEDENUMS}
@@ -1974,9 +1974,9 @@
   {$DEFINE HAS_UNITSCOPE}
   {$DEFINE HAS_UNIT_SYSTEM_UITYPES}
   {$DEFINE HAS_UNIT_VCL_THEMES}
-  {$DEFINE HAS_UNIT_ZIP}
-  {$DEFINE HAS_UNIT_ZLIB}
-  {$DEFINE SUPPORTS_TSTRINGS_ENCODING}
+  {$DEFINE HAS_UNIT_SYSTEM_ZIP}
+  {$DEFINE HAS_UNIT_SYSTEM_ZLIB}
+  {$DEFINE HAS_TSTRINGS_ENCODING}
   {$IFDEF CPU64}
     {$DEFINE SUPPORTS_EXTENDED_IS_DOUBLE}
   {$ENDIF}
