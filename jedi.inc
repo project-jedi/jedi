@@ -615,7 +615,7 @@
   SUPPORTS_UNICODE_STRING        Compiler supports UnicodeString (D12+)
   SUPPORTS_INT_ALIASES           Types Int8, Int16, Int32, UInt8, UInt16 and UInt32 are defined in the unit System (D12+)
   HAS_UNIT_RTTI                  Unit RTTI is available (D14+)
-  SUPPORTS_EXTENDED_RTTI         Compiler supports the (extended) RTTI directive (D14+)
+  SUPPORTS_EXTENDED_RTTI         Compiler supports the extended RTTI directive (D14+)
   SUPPORTS_CAST_INTERFACE_TO_OBJ The compiler supports casts from interfaces to objects (D14+)
   SUPPORTS_DELAYED_LOADING       The compiler generates stubs for delaying imported function loads (D14+)
   HAS_UNIT_REGULAREXPRESSIONSAPI Unit RegularExpressionsAPI is available (D15+)
@@ -633,7 +633,7 @@
   USE_64BIT_TYPES                Use 64 bit types (D16+)
   SUPPORTS_EXCESSPRECISION       Compiler supports the {$EXCESSPRECISION ON|OFF} directive (D16+)
   HAS_TSTRINGS_ENCODING          RTL supports TStrings.Encoding (D16+)
-  SUPPORTS_EXTENDED_IS_DOUBLE    Compiler uses Double instead of Extended (64 bit D16+)
+  EXTENDED_IS_DOUBLE_ALIAS       Compiler uses Double instead of Extended (64 bit D16+)
   HAS_UNIT_UXTHEME               Unit (Vcl.)UxTheme is available (D7+)
   HAS_EXCEPTION_STACKTRACE       Exception class has the StackTrace propery (D12+)
   SUPPORTS_LEGACYIFEND           Compiler supports the LEGACYIFEND directive (D17+)
@@ -1978,7 +1978,7 @@
   {$DEFINE HAS_UNIT_SYSTEM_ZLIB}
   {$DEFINE HAS_TSTRINGS_ENCODING}
   {$IFDEF CPU64}
-    {$DEFINE SUPPORTS_EXTENDED_IS_DOUBLE}
+    {$DEFINE EXTENDED_IS_DOUBLE_ALIAS}
   {$ENDIF}
 {$ENDIF RTL230_UP}
 
