@@ -667,7 +667,10 @@
 { Set FreePascal to Delphi mode }
 {$IFDEF FPC}
   {$MODE DELPHI}
-  {$ASMMODE Intel}
+  // Assembler mode Intel is only available for the x86 CPU family
+  {$IF DEFINED(CPUI8086) OR DEFINED(CPUI386) OR DEFINED(CPUX86_64)}
+    {$ASMMODE Intel}
+  {$IFEND}
   {$UNDEF BORLAND}
   {$DEFINE CPUASM}
    // FPC defines CPU32, CPU64 and Unix automatically
