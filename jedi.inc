@@ -615,6 +615,7 @@
   SUPPORTS_UNICODE_STRING        Compiler supports UnicodeString (D12+)
   SUPPORTS_INT_ALIASES           Types Int8, Int16, Int32, UInt8, UInt16 and UInt32 are defined in the unit System (D12+)
   HAS_UNIT_RTTI                  Unit RTTI is available (D14+)
+  SUPPORTS_EXTENDED_RTTI         Compiler supports the (extended) RTTI directive (D14+)
   SUPPORTS_CAST_INTERFACE_TO_OBJ The compiler supports casts from interfaces to objects (D14+)
   SUPPORTS_DELAYED_LOADING       The compiler generates stubs for delaying imported function loads (D14+)
   HAS_UNIT_REGULAREXPRESSIONSAPI Unit RegularExpressionsAPI is available (D15+)
@@ -1899,6 +1900,7 @@
 
 {$IFDEF COMPILER14_UP}
   {$DEFINE SUPPORTS_CLASS_CTORDTORS}
+  {$DEFINE SUPPORTS_EXTENDED_RTTI}
   {$DEFINE HAS_UNIT_RTTI}
   {$DEFINE SUPPORTS_CAST_INTERFACE_TO_OBJ}
   {$DEFINE SUPPORTS_DELAYED_LOADING}
