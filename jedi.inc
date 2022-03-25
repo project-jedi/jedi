@@ -609,6 +609,7 @@
   HAS_UNIT_PNGIMAGE              Unit PngImage exists (D12+)
   HAS_UNIT_CHARACTER             Unit Character exists (D12+)
   XPLATFORM_RTL                  The RTL supports crossplatform function names (e.g. RaiseLastOSError) (D6+/BCB6+/FPC)
+  SUPPORTS_POINTERMATH           Compiler supports arithmetic operations on typed pointers (D12+)
   SUPPORTS_UNICODE               string type is aliased to an unicode string (WideString or UnicodeString) (DX.NET, D12+)
   SUPPORTS_UNICODE_STRING        Compiler supports UnicodeString (D12+)
   SUPPORTS_INT_ALIASES           Types Int8, Int16, Int32, UInt8, UInt16 and UInt32 are defined in the unit System (D12+)
@@ -1885,6 +1886,7 @@
   {$DEFINE SUPPORTS_GENERIC_TYPES}
   {$DEFINE SUPPORTS_GENERIC_METHODS}
   {$DEFINE SUPPORTS_DEPRECATED_DETAILS}
+  {$DEFINE SUPPORTS_POINTERMATH}
   {$DEFINE SUPPORTS_INT_ALIASES}
   {$DEFINE SUPPORTS_SCOPEDENUMS}
   {$IFNDEF CLR}
