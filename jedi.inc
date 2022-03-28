@@ -610,7 +610,7 @@
   HAS_UNIT_CHARACTER             Unit Character exists (D12+)
   XPLATFORM_RTL                  The RTL supports crossplatform function names (e.g. RaiseLastOSError) (D6+/BCB6+/FPC)
   SUPPORTS_TYPED_POINTERMATH     Compiler supports arithmetic operations on typed pointers (D12+)
-  SUPPORTS_STRINGCHECKS          Compiler supports the STRINGCHECKS directive (D12+) (automatic payload-checks using Assure*String functions, relevant for C++ Builder)
+  SUPPORTS_STRINGCHECKS          Compiler supports the STRINGCHECKS directive (D12+)
   SUPPORTS_UNICODE               string type is aliased to an unicode string (WideString or UnicodeString) (DX.NET, D12+)
   SUPPORTS_UNICODE_STRING        Compiler supports UnicodeString (D12+)
   SUPPORTS_INT_ALIASES           Types Int8, Int16, Int32, UInt8, UInt16 and UInt32 are defined in the unit System (D12+)
@@ -631,7 +631,7 @@
   HAS_ENOTIMPLEMENTED            Exception class ENotImplemented is available (D15+)
   HAS_UNIT_VCL_THEMES            Unit Vcl.Themes is available (D16+)
   USE_64BIT_TYPES                Use 64 bit types (D16+)
-  SUPPORTS_EXCESSPRECISION       Compiler supports the {$EXCESSPRECISION ON|OFF} directive (D16+)
+  SUPPORTS_EXCESSPRECISION       Compiler supports the EXCESSPRECISION directive (D16+)
   HAS_TSTRINGS_ENCODING          RTL supports TStrings.Encoding (D16+)
   EXTENDED_IS_DOUBLE_ALIAS       Compiler uses Double instead of Extended (64 bit D16+)
   HAS_UNIT_UXTHEME               Unit (Vcl.)UxTheme is available (D7+)
@@ -689,20 +689,20 @@
 {$IFDEF BORLAND}
   {$IFDEF LINUX}
     {$IFDEF VER140} // Only under Delphi 6, LINUX implies Kylix
-    {$DEFINE KYLIX}
+      {$DEFINE KYLIX}
     {$ENDIF}
   {$ENDIF LINUX}
   {$IFNDEF CLR}
     {$IFNDEF CPUX86}
       // CPUX86 is not defined, which means it most likely is a 64 bits compiler.
       // However, this is only the case if either of two other symbols are defined:
-      // http://docwiki.embarcadero.com/RADStudio/Seattle/en/Conditional_compilation_%28Delphi%29
+      // http://docwiki.embarcadero.com/RADStudio/Alexandria/en/Conditional_compilation_%28Delphi%29
       {$DEFINE CPU64}
       {$DEFINE DELPHI64_TEMPORARY}
       {$IFNDEF CPUX64}
         {$IFNDEF CPU64BITS}
           {$DEFINE CPU386}  // None of the two 64-bits symbols are defined, assume this is 32-bit
-          {$DEFINE CPU32}   
+          {$DEFINE CPU32}
           {$UNDEF CPU64}
           {$UNDEF DELPHI64_TEMPORARY}
         {$ENDIF ~CPU64BITS}
