@@ -630,7 +630,6 @@
   HAS_EARGUMENTEXCEPTION         Exception class EArgumentException is available (D14+)
   HAS_ENOTIMPLEMENTED            Exception class ENotImplemented is available (D15+)
   HAS_UNIT_VCL_THEMES            Unit Vcl.Themes is available (D16+)
-  USE_64BIT_TYPES                Use 64 bit types (D16+)
   SUPPORTS_EXCESSPRECISION       Compiler supports the EXCESSPRECISION directive (D16+)
   HAS_TSTRINGS_ENCODING          RTL supports TStrings.Encoding (D16+)
   EXTENDED_IS_DOUBLE_ALIAS       Compiler uses Double instead of Extended (64 bit D16+)
@@ -1912,7 +1911,7 @@
 {$ENDIF COMPILER14_UP}
 
 {$IFDEF COMPILER16_UP}
-  {$DEFINE USE_64BIT_TYPES}
+  {$DEFINE USE_64BIT_TYPES} // TODO -oOutchy : Document in Feature Directives
   {$DEFINE SUPPORTS_EXCESSPRECISION}
   {$IFDEF CPU64}
     {$DEFINE EXTENDED_IS_DOUBLE_ALIAS}
