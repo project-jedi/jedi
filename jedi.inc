@@ -169,7 +169,7 @@
   DELPHI28               Defined when compiling with Delphi 11 for Win32 (Codename OLYMPUS)
   DELPHIX_ALEXANDRIA     Alias for DELPHI28
   DELPHI29               Defined when compiling with Delphi 12 for Win32 (Codename YUKON)
-  DELPHIX_ATHENS         Alias for DELPHI29
+  DELPHI_ATHENS          Alias for DELPHI29
   DELPHI1_UP             Defined when compiling with Delphi 1 or higher
   DELPHI2_UP             Defined when compiling with Delphi 2 or higher
   DELPHI3_UP             Defined when compiling with Delphi 3 or higher
@@ -217,7 +217,7 @@
   DELPHI28_UP            Defined when compiling with Delphi 11 for Win32 or higher
   DELPHIX_ALEXANDRIA_UP  Alias for DELPHI28_UP
   DELPHI29_UP            Defined when compiling with Delphi 12 for Win32 or higher
-  DELPHIX_ATHENS_UP      Alias for DELPHI29_UP
+  DELPHI_ATHENS_UP       Alias for DELPHI29_UP
 
 
 - Kylix Versions
@@ -1152,7 +1152,7 @@
         {$DEFINE BCB29}
       {$ELSE}
         {$DEFINE DELPHI29}
-        {$DEFINE DELPHIX_ATHENS} // synonym to DELPHI29
+        {$DEFINE DELPHI_ATHENS} // synonym to DELPHI29
         {$DEFINE DELPHICOMPILER29}
       {$ENDIF BCB}
       {$DEFINE RTL360_UP}
@@ -1223,7 +1223,7 @@
 {------------------------------------------------------------------------------}
 
 {$IFDEF DELPHI29_UP}
-  {$DEFINE DELPHIX_ATHENS_UP} // synonym to DELPHI29_UP
+  {$DEFINE DELPHI_ATHENS_UP} // synonym to DELPHI29_UP
   {$DEFINE DELPHI28_UP}
 {$ENDIF}
 
