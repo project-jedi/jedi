@@ -64,6 +64,7 @@
   DELPHILANGUAGE      Defined if compiled with Delphi, Kylix or C++Builder
   BORLAND             Defined if compiled with Delphi, Kylix or C++Builder
   FPC                 Defined if compiled with FPC
+  OXYGENE             Defined if compiled with Oxygene
 
 - Platform Directives
 
@@ -86,7 +87,7 @@
   CPU386              Defined when target platform is native x86 (win32)
   CPUx86_64           Defined when target platform is native x86_64 (win64)
   CPU32               Defined when target is 32-bit
-  CPU64	              Defined when target is 64-bit
+  CPU64               Defined when target is 64-bit
   CPUASM              Defined when target assembler is available
 
 - Visual library Directives
@@ -336,7 +337,7 @@
   BCB27        Defined when compiling with C++Builder Personality of RAD Studio 10.4 Sydney (also known as C++Builder 10.4 Sydney) (Codename DENALI)
   BCB28        Defined when compiling with C++Builder Personality of RAD Studio 11 Alexandria (also known as C++Builder 11 Alexandria) (Codename OLYMPUS)
   BCB29        Defined when compiling with C++Builder Personality of RAD Studio 12 Athens (also known as C++Builder 12 Athens) (Codename YUKON)
-  BCB37        Defined when compiling with C++Builder Personality of RAD Studio 13 ??? (also known as C++Builder 13 Florence) (Codename GANYMEDE)
+  BCB37        Defined when compiling with C++Builder Personality of RAD Studio 13 Florence (also known as C++Builder 13 Florence) (Codename GANYMEDE)
   BCB1_UP      Defined when compiling with C++Builder 1 or higher
   BCB3_UP      Defined when compiling with C++Builder 3 or higher
   BCB4_UP      Defined when compiling with C++Builder 4 or higher
@@ -396,7 +397,7 @@
   BDS20        Defined when compiling with BDS 20.0 (Embarcadero RAD Studio 10.3) (Codename CARNIVAL)
   BDS21        Defined when compiling with BDS 21.0 (Embarcadero RAD Studio 10.4) (Codename DENALI)
   BDS22        Defined when compiling with BDS 22.0 (Embarcadero RAD Studio 11) (Codename OLYMPUS)
-  BDS23        Defined when compiling with BDS 22.0 (Embarcadero RAD Studio 12) (Codename YUKON)
+  BDS23        Defined when compiling with BDS 23.0 (Embarcadero RAD Studio 12) (Codename YUKON)
   BDS37        Defined when compiling with BDS 37.0 (Embarcadero RAD Studio 13) (Codename GANYMEDE)
   BDS2_UP      Defined when compiling with BDS 2.0 or higher
   BDS3_UP      Defined when compiling with BDS 3.0 or higher
@@ -697,7 +698,9 @@
   EXTENDEDSYNTAX_ON      Compiling in the X+ state (Delphi extended syntax enabled)
 *)
 
-{$DEFINE BORLAND}
+{$IFNDEF ELEMENTS}
+  {$DEFINE BORLAND}
+{$ENDIF}
 
 { Set FreePascal to Delphi mode }
 {$IFDEF FPC}
@@ -1213,6 +1216,213 @@
   {$ENDIF ~BCB}
 
 {$ENDIF BORLAND}
+
+{------------------------------------------------------------------------------}
+{ Oxygene support                                                              }
+{ Since largely a superset of Delphi, define macros expecting Delphi           }
+{------------------------------------------------------------------------------}
+{$IFDEF ELEMENTS}
+  // CLR and NETSTANDARD or NETCORE are auto-defined
+  // LINUX is defined for both Linux AND Android
+  // https://docs.elementscompiler.com/Compiler/ConditionalDefines/
+
+  {$DEFINE PUREPASCAL}
+
+  {$IFDEF CLR}
+    // See https://docs.elementscompiler.com/Compiler/ConditionalDefines/ for
+    // macros defining various .Net related tech, eg Classic / Standard / Mono / .Net Core
+    {$DEFINE CLR20}
+    {$DEFINE CLR20_UP}
+  {$ENDIF}
+
+  {$IFDEF I386}
+    {$DEFINE CPU386}
+    {$DEFINE CPU32}
+  {$ENDIF}
+
+  {$IFDEF X86_64}
+    {$DEFINE CPU64}
+    {$DEFINE CPU64BITS}
+    {$DEFINE CPUX64}
+  {$ENDIF}
+
+  {$IFDEF ARM64}
+    {$DEFINE CPU64}
+    {$DEFINE CPU64BITS}
+    {$DEFINE CPUARM64}
+  {$ENDIF}
+
+  // Platform compatibility mappings
+  // Elements auto-defines: WINDOWS, LINUX, DARWIN (Island); MACOS, IOS, etc (Cocoa)
+  {$IFDEF WINDOWS}
+    {$IFNDEF MSWINDOWS}
+      {$DEFINE MSWINDOWS}
+    {$ENDIF}
+    {$IFDEF CPU64}
+      {$DEFINE WIN64}
+    {$ELSE}
+      {$DEFINE WIN32}
+    {$ENDIF}
+  {$ENDIF}
+
+  // Add defines for current Delphi, since most code will wrap against specific Delphi version
+  // Regard Oxygene as a superset (minor differences for legacy language features)
+  // Note: OXYGENE is auto-defined by the compiler
+
+  {$DEFINE BDS}
+  {$DEFINE DELPHI}
+  {$DEFINE DELPHICOMPILER}
+
+  {$UNDEF UNKNOWN_COMPILER_VERSION}
+
+  {$DEFINE BDS6}
+  {$DEFINE COMPILER6}
+  {$DEFINE DELPHI6}
+  {$DEFINE DELPHICOMPILER6}
+
+  {$DEFINE BDS7}
+  {$DEFINE COMPILER7}
+  {$DEFINE DELPHI7}
+  {$DEFINE DELPHICOMPILER7}
+
+  {$DEFINE BDS8}
+  {$DEFINE COMPILER8}
+  {$DEFINE DELPHI8}
+  {$DEFINE DELPHICOMPILER8}
+
+  {$DEFINE BDS9}
+  {$DEFINE COMPILER9}
+  {$DEFINE DELPHI9}
+  {$DEFINE DELPHICOMPILER9}
+
+  {$DEFINE BDS10}
+  {$DEFINE COMPILER10}
+  {$DEFINE DELPHI10}
+  {$DEFINE DELPHICOMPILER10}
+  {$DEFINE RTL100_UP}
+
+  {$DEFINE BDS11}
+  {$DEFINE COMPILER11}
+  {$DEFINE DELPHI11}
+  {$DEFINE DELPHICOMPILER11}
+  {$DEFINE RTL110_UP}
+
+  {$DEFINE BDS12}
+  {$DEFINE COMPILER12}
+  {$DEFINE DELPHI12}
+  {$DEFINE DELPHICOMPILER12}
+  {$DEFINE RTL120_UP}
+
+  {$DEFINE BDS14}
+  {$DEFINE COMPILER14}
+  {$DEFINE DELPHI14}
+  {$DEFINE DELPHICOMPILER14}
+  {$DEFINE RTL140_UP}
+
+  {$DEFINE BDS15}
+  {$DEFINE COMPILER15}
+  {$DEFINE DELPHI15}
+  {$DEFINE DELPHICOMPILER15}
+  {$DEFINE RTL150_UP}
+
+  {$DEFINE BDS16}
+  {$DEFINE COMPILER16}
+  {$DEFINE DELPHI16}
+  {$DEFINE DELPHICOMPILER16}
+  {$DEFINE RTL160_UP}
+
+  {$DEFINE BDS17}
+  {$DEFINE COMPILER17}
+  {$DEFINE DELPHI17}
+  {$DEFINE DELPHICOMPILER17}
+  {$DEFINE RTL170_UP}
+
+  {$DEFINE BDS18}
+  {$DEFINE COMPILER18}
+  {$DEFINE DELPHI18}
+  {$DEFINE DELPHICOMPILER18}
+  {$DEFINE RTL180_UP}
+
+  {$DEFINE BDS19}
+  {$DEFINE COMPILER19}
+  {$DEFINE DELPHI19}
+  {$DEFINE DELPHICOMPILER19}
+  {$DEFINE RTL190_UP}
+
+  {$DEFINE BDS20}
+  {$DEFINE COMPILER20}
+  {$DEFINE DELPHI20}
+  {$DEFINE DELPHICOMPILER20}
+  {$DEFINE RTL200_UP}
+
+  {$DEFINE BDS21}
+  {$DEFINE COMPILER21}
+  {$DEFINE DELPHI21}
+  {$DEFINE DELPHICOMPILER21}
+  {$DEFINE RTL210_UP}
+
+  {$DEFINE BDS22}
+  {$DEFINE COMPILER22}
+  {$DEFINE DELPHI22}
+  {$DEFINE DELPHICOMPILER22}
+  {$DEFINE RTL220_UP}
+
+  {$DEFINE BDS23}
+  {$DEFINE COMPILER23}
+  {$DEFINE DELPHI23}
+  {$DEFINE DELPHI_SEATTLE} // synonym to DELPHI23
+  {$DEFINE DELPHICOMPILER23}
+  {$DEFINE RTL230_UP}
+
+  {$DEFINE BDS24}
+  {$DEFINE COMPILER24}
+  {$DEFINE DELPHI24}
+  {$DEFINE DELPHI_BERLIN} // synonym to DELPHI24
+  {$DEFINE DELPHICOMPILER24}
+  {$DEFINE RTL240_UP}
+
+  {$DEFINE BDS25}
+  {$DEFINE COMPILER25}
+  {$DEFINE DELPHI25}
+  {$DEFINE DELPHI_TOKYO} // synonym to DELPHI25
+  {$DEFINE DELPHICOMPILER25}
+  {$DEFINE RTL250_UP}
+
+  {$DEFINE BDS26}
+  {$DEFINE COMPILER26}
+  {$DEFINE DELPHI26}
+  {$DEFINE DELPHI_RIO} // synonym to DELPHI26
+  {$DEFINE DELPHICOMPILER26}
+  {$DEFINE RTL260_UP}
+
+  {$DEFINE BDS27}
+  {$DEFINE COMPILER27}
+  {$DEFINE DELPHI27}
+  {$DEFINE DELPHI_SYDNEY} // synonym to DELPHI27
+  {$DEFINE DELPHICOMPILER27}
+  {$DEFINE RTL270_UP}
+
+  {$DEFINE BDS28}
+  {$DEFINE COMPILER28}
+  {$DEFINE DELPHI28}
+  {$DEFINE DELPHI_ALEXANDRIA} // synonym to DELPHI28
+  {$DEFINE DELPHICOMPILER28}
+  {$DEFINE RTL280_UP}
+
+  {$DEFINE BDS29}
+  {$DEFINE COMPILER29}
+  {$DEFINE DELPHI29}
+  {$DEFINE DELPHI_ATHENS} // synonym to DELPHI29
+  {$DEFINE DELPHICOMPILER29}
+  {$DEFINE RTL290_UP}
+
+  {$DEFINE BDS37}
+  {$DEFINE COMPILER37}
+  {$DEFINE DELPHI37}
+  {$DEFINE DELPHI_FLORENCE} // synonym to DELPHI37
+  {$DEFINE DELPHICOMPILER37}
+  {$DEFINE RTL370_UP}
+{$ENDIF}
 
 {------------------------------------------------------------------------------}
 { DELPHIX_UP from DELPHIX mappings                                             }
