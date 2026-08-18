@@ -80,15 +80,17 @@
   UNIX                Defined when target platform is Unix-like (including Linux)
   CLR                 Defined when target platform is .NET
 
-- Architecture directives. These are auto-defined by FPC
+- Architecture directives. Some of these are auto-defined by Delphi or FPC
   CPU32 and CPU64 are mostly for generic pointer size dependant differences rather
   than for a specific architecture.
 
   CPU386              Defined when target platform is native x86 (win32)
-  CPUx86_64           Defined when target platform is native x86_64 (win64)
+  CPUX64              Defined when target platform is native x86_64 (win64)
+  CPUARM32            Defined when target platform is native arm32
+  CPUARM64            Defined when target platform is native arm64
   CPU32               Defined when target is 32-bit
   CPU64               Defined when target is 64-bit
-  CPUASM              Defined when target assembler is available
+  CPUASM              **Deprecated** Defined when target assembler is available - Use ASSEMBLER instead
 
 - Visual library Directives
 
@@ -110,10 +112,14 @@
 
   Directive           Description
   ------------------------------------------------------------------------------
-  PUREPASCAL          Code is machine-independent (as opposed to assembler code)
+  ASSEMBLER           Assembler syntax is accepted
+  ASMX86              Assembler syntax is accepted for CPUX86
+  ASMX64              Assembler syntax is accepted for CPUX64
+  ASMARM32            Assembler syntax is accepted for CPUARM32
+  ASMARM64            Assembler syntax is accepted for CPUARM64
   Win32API            Code is specific for the Win32 API;
                       use instead of "{$IFNDEF CLR} {$IFDEF MSWINDOWS}" constructs
-
+  PUREPASCAL          **Deprecated** Code is machine-independent (as opposed to assembler code) - Should no longer be used
 
 - Delphi Versions
 
@@ -709,16 +715,20 @@
     {$ASMMODE Intel}
   {$IFEND}
   {$UNDEF BORLAND}
-  {$DEFINE CPUASM}
+  // Map FPC architecture directives to Delphi ones
+  {$IFDEF CPUX86_64}
+    {$DEFINE CPUX64}
+  {$ENDIF CPUX86_64}
+  {$IFDEF CPUARM}
+    {$DEFINE CPUARM32}
+  {$ENDIF CPUARM}
+  {$IFDEF CPUAARCH64}
+    {$DEFINE CPUARM64}
+  {$ENDIF CPUAARCH64}
    // FPC defines CPU32, CPU64 and Unix automatically
 {$ENDIF}
 
 {$IFDEF ELEMENTS}
-  // Oxygene's assembly syntax is very different; Delphi/FPC asm blocks will not compile.
-  // PurePascal code sections should be used instead.
-  {$UNDEF CPUASM}
-  {$DEFINE PUREPASCAL}
-
   {$UNDEF BORLAND}
 {$ENDIF}
 
@@ -1934,19 +1944,6 @@
   {$DEFINE SUPPORTS_UNICODE}
 {$ENDIF CLR}
 
-{$IFDEF BORLAND}
-  {$IFNDEF CLR}
-    // The ASSEMBLER symbol appeared with Delphi 7
-    {$IFNDEF COMPILER7_UP}
-      {$DEFINE CPUASM}
-    {$ELSE}
-      {$IFDEF ASSEMBLER}
-        {$DEFINE CPUASM}
-      {$ENDIF ASSEMBLER}
-    {$ENDIF ~COMPILER7_UP}
-  {$ENDIF ~CLR}
-{$ENDIF BORLAND}
-
 {$IFDEF COMPILER1_UP}
   {$DEFINE SUPPORTS_CONSTPARAMS}
   {$DEFINE SUPPORTS_SINGLE}
@@ -2170,9 +2167,25 @@
 { Cross-platform related defines                                               }
 {------------------------------------------------------------------------------}
 
-{$IFNDEF CPUASM}
-  {$DEFINE PUREPASCAL}
-{$ENDIF ~CPUASM}
+{$IFDEF FPC}
+  {$DEFINE ASSEMBLER}
+{$ENDIF FPC}
+
+{$IFDEF BORLAND}
+  {$IFNDEF CLR}
+    // The ASSEMBLER symbol appeared with Delphi 7
+    {$IFNDEF COMPILER7_UP}
+      {$DEFINE ASSEMBLER}
+    {$ENDIF ~COMPILER7_UP}
+  {$ENDIF ~CLR}
+{$ENDIF BORLAND}
+
+{$IFDEF ASSEMBLER}
+  {$IFDEF CPU386} {$DEFINE ASMX86} {$ENDIF}
+  {$IFDEF CPUX64} {$DEFINE ASMX64} {$ENDIF}
+  {$IFDEF CPUARM32} {$DEFINE ASMARM32} {$ENDIF}
+  {$IFDEF CPUARM64} {$DEFINE ASMARM64} {$ENDIF}
+{$ENDIF ASSEMBLER}
 
 {$IFDEF WIN32}
   {$DEFINE MSWINDOWS} // predefined for D6+/BCB6+
@@ -2232,5 +2245,15 @@
 
 // for Delphi/BCB trial versions remove the point from the line below
 {.$UNDEF SUPPORTS_WEAKPACKAGEUNIT}
+
+{------------------------------------------------------------------------------}
+{ Deprecated defines for backward compatibility                                }
+{------------------------------------------------------------------------------}
+
+{$IFDEF ASSEMBLER}
+  {$DEFINE CPUASM}
+{$ELSE ASSEMBLER}
+  {$DEFINE PUREPASCAL}
+{$ENDIF ASSEMBLER}
 
 {$ENDIF ~JEDI_INC}
